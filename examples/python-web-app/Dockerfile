@@ -5,9 +5,9 @@ WORKDIR /app
 COPY requirements.txt /app
 COPY devops /app
 
-RUN apt update && \
-    apt install -y python3 python3-pip --break-system-packages && \
-    pip install -r requirements.txt --break-system-packages && \
+RUN apt-get update && \
+    pipx install -y python3 python3-pip && \
+    pipx install -r requirements.txt && \
     cd devops
 
 ENTRYPOINT ["python3"]
