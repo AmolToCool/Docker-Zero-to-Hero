@@ -7,7 +7,7 @@ COPY devops /app
 
 RUN apt-get update && \
     apt install -y python3 python3-pip && \
-    apt install -r requirements.txt && \
+    apt install -y requirements.txt && \
     cd devops
 
 ENTRYPOINT ["python3"]
