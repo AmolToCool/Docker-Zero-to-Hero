@@ -6,11 +6,8 @@ COPY requirements.txt /app
 COPY devops /app
 
 RUN apt update && \
-    sudo apt install python3-venv && \
-    python3 -m venv .venv && \
-    source .venv/bin/activate && \
-    apt install -y python3 python3-pip && \
-    pip install -r requirements.txt && \
+    apt install -y python3 python3-pip --break-system-packages && \
+    pip install -r requirements.txt --break-system-packages && \
     cd devops
 
 ENTRYPOINT ["python3"]
